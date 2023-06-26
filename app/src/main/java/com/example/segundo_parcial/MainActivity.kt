@@ -57,11 +57,10 @@ class MainActivity : AppCompatActivity() {
                 }catch (e : Exception){
                     Toast.makeText(this, "No se puede enviar", Toast.LENGTH_SHORT).show()
                 }
+            }else{
+                Toast.makeText(this, "Hubo un problema, intente nuevamente", Toast.LENGTH_SHORT).show()
             }
-
-
         }
-
 
         buttonCategories.setOnClickListener{
             val intent = Intent(this, ListCategoriesActivity::class.java)
@@ -75,10 +74,6 @@ class MainActivity : AppCompatActivity() {
             .baseUrl(URL_Jokes)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    }
-
-    private fun itemClicked(content: String){
-        Toast.makeText(this, content, Toast.LENGTH_SHORT).show()
     }
 
     private fun getRandomJoke(category: String){
